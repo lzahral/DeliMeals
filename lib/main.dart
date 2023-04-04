@@ -1,5 +1,6 @@
+import './screens/category_meals_screen.dart';
 import 'package:flutter/material.dart';
-import './categories_screen.dart';
+import './screens/categories_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch().copyWith(
             primary: Colors.pink[200],
-            secondary: Colors.amber[100],
+            secondary: const Color.fromARGB(255, 79, 255, 85),
             tertiary: Colors.grey[900],
           ),
           textTheme: ThemeData.light().textTheme.copyWith(
@@ -23,7 +24,11 @@ class MyApp extends StatelessWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87))),
-      home: const CategoriesScreen(),
+      // home: const CategoriesScreen(),
+      routes: {
+        '/': (ctx) => const CategoriesScreen(),
+        CategoryMealsScreen.route: (ctx) => const CategoryMealsScreen()
+      },
     );
   }
 }
